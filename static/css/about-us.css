@@ -1,0 +1,363 @@
+:root {
+    --buz-mavisi: #EFF8FF;
+    --ana-mavi: #1E84B5;
+    --koyu-mavi: #0E384C;
+}
+
+.section-header-div {
+    background-color: var(--buz-mavisi);
+}
+
+.section-header-head {
+    font-size: 3.375rem;
+    /* 54px / 16 = 3.375rem */
+    font-weight: 700;
+    color: var(--ana-mavi);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6.25rem;
+    /* 100px / 16 = 6.25rem */
+    text-align: center;
+    margin: 0;
+    min-height: 30vh;
+    /* Minimum yükseklik viewport height ile */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+    .section-header-head {
+        font-size: 3rem;
+        /* 48px */
+        padding: 5rem 4.375rem;
+        /* 80px 70px */
+    }
+}
+
+@media (max-width: 992px) {
+    .section-header-head {
+        font-size: 2.625rem;
+        /* 42px */
+        padding: 4.5rem 3.75rem;
+        /* 72px 60px */
+        min-height: 25vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header-head {
+        font-size: 2.25rem;
+        /* 36px */
+        padding: 3.75rem 2.5rem;
+        /* 60px 40px */
+        min-height: 20vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header-head {
+        font-size: 1.875rem;
+        /* 30px */
+        padding: 2.5rem 1.25rem;
+        /* 40px 20px */
+        min-height: 15vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .section-header-head {
+        font-size: 1.5rem;
+        /* 24px */
+        padding: 2rem 1rem;
+        /* 32px 16px */
+        min-height: 12vh;
+    }
+}
+
+.about-us-right-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--koyu-mavi);
+}
+
+.about-us-right-description {
+    font-size: 16px;
+    color: #527282;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Tablet boyutları için (768px - 1024px) */
+@media (max-width: 1024px) {
+    .section-header-head {
+        font-size: 42px;
+        padding: 80px 40px;
+    }
+
+    .about-us-right-subtitle {
+        font-size: 22px;
+    }
+
+    .about-us-right-description {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+}
+
+/* Küçük tablet boyutları için (576px - 768px) */
+@media (max-width: 768px) {
+    .section-header-head {
+        font-size: 36px;
+        padding: 60px 30px;
+    }
+
+    .about-us-right-subtitle {
+        font-size: 20px;
+    }
+
+    .about-us-right-description {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+}
+
+/* Mobil boyutları için (576px ve altı) */
+@media (max-width: 576px) {
+    .section-header-head {
+        font-size: 28px;
+        padding: 40px 20px;
+        line-height: 1.3;
+    }
+
+    .about-us-right-subtitle {
+        font-size: 18px;
+    }
+
+    .about-us-right-description {
+        font-size: 14px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+}
+
+/* Çok küçük mobil cihazlar için (360px ve altı) */
+@media (max-width: 360px) {
+    .section-header-head {
+        font-size: 24px;
+        padding: 30px 15px;
+    }
+
+    .about-us-right-subtitle {
+        font-size: 16px;
+    }
+
+    .about-us-right-description {
+        font-size: 13px;
+    }
+}
+
+/* Yüksek çözünürlüklü cihazlar için (2x retina vb.) */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .section-header-head {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Yatay modda mobil cihazlar için */
+@media (max-height: 500px) and (orientation: landscape) {
+    .section-header-head {
+        padding: 60px 40px;
+    }
+}
+
+/* Hakkımızda kısmı */
+.about-section {
+    background-color: white;
+    padding: 40px 0;
+}
+
+.about-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+/* About-left görseller düzeni */
+.about-col-left {
+    flex: 1;
+    min-width: 300px;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Görsel kap */
+.about-images {
+    position: relative;
+    max-width: 500px;
+}
+
+/* Fotoğraflar düzgün görünsün */
+.about-images img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Üst görsel */
+.about-img-top {
+    position: relative;
+    width: 85%;
+    z-index: 2;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+/* Alt görsel - üst görselin önüne gelecek şekilde sağa kaydırılmış overlap */
+.about-img-bottom {
+    position: relative;
+    width: 75%;
+    margin-top: -60px;
+    margin-left: 25%;
+    z-index: 3;
+    border-radius: 22px;
+    border: 8px solid white;
+    overflow: hidden;
+}
+
+/* Sağ içerik */
+.about-col-right {
+    flex: 1;
+    min-width: 300px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--koyu-mavi);
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.about-subtitle:first-child {
+    margin-top: 0;
+}
+
+.about-description {
+    color: #527282;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 1200px) {
+    .about-wrapper {
+        gap: 30px;
+    }
+
+    .about-col-left,
+    .about-col-right {
+        padding: 30px 20px;
+    }
+
+    .about-img-bottom {
+        margin-top: -50px;
+        margin-left: 20%;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-col-left,
+    .about-col-right {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .about-images {
+        max-width: 100%;
+    }
+
+    .about-img-top {
+        width: 80%;
+    }
+
+    .about-img-bottom {
+        width: 70%;
+        margin-top: -40px;
+        margin-left: 25%;
+    }
+
+    .about-subtitle {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 30px 0;
+    }
+
+    .about-col-left,
+    .about-col-right {
+        padding: 15px;
+    }
+
+    .about-img-top {
+        width: 85%;
+        border-radius: 20px;
+    }
+
+    .about-img-bottom {
+        width: 75%;
+        margin-top: -30px;
+        margin-left: 20%;
+        border-radius: 16px;
+        border: 6px solid white;
+    }
+
+    .about-subtitle {
+        font-size: 1.3rem;
+        margin-top: 20px;
+    }
+
+    .about-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-img-top {
+        width: 90%;
+    }
+
+    .about-img-bottom {
+        width: 80%;
+        margin-top: -25px;
+        margin-left: 15%;
+        border: 4px solid white;
+    }
+
+    .about-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .about-description {
+        font-size: 0.9rem;
+    }
+}

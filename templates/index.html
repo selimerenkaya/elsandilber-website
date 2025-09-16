@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elşan Dilber Ağız ve Diş Sağlığı Polikliniği</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <ul class="mobile-nav">
+            <li class="mobile-nav-item">
+                <a class="mobile-nav-link active" href="/anasayfa">Anasayfa</a>
+            </li>
+            <li class="mobile-nav-item">
+                <div class="mobile-dropdown-toggle">
+                    <a class="mobile-nav-link" href="/tedaviler">Tedaviler</a>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="/tedaviler/genel_dis_bakimi">Genel Diş Bakımı</a></li>
+                    <li><a href="/tedaviler/cocuk_dis_hekimligi">Çocuk Diş Hekimliği</a></li>
+                    <li><a href="/tedaviler/implant_tedavisi">Diş İmplantları</a></li>
+                    <li><a href="/tedaviler/dis_beyazlatma">Diş Beyazlatma</a></li>
+                    <li><a href="/tedaviler/dis_estetigi">Diş Estetiği</a></li>
+                    <li><a href="/tedaviler/dis_eti_hastaliklari">Diş Eti Hastalıkları</a></li>
+                    <li><a href="/tedaviler/kanal_tedavisi">Kanal Tedavisi</a></li>
+                    <li><a href="/tedaviler/invisalign_tedavisi">Invisalign Tedavisi</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-item">
+                <a class="mobile-nav-link" href="/galeri">Galeri</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a class="mobile-nav-link" href="/hakkimizda">Hakkımızda</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a class="mobile-nav-link" href="/iletisim">İletişim</a>
+            </li>
+        </ul>
+
+        <div class="mt-4">
+            <a href="/iletisim" class="randevu-al w-100">
+                Randevu Al <span class="icon">↗</span>
+            </a>
+        </div>
+    </div>
+
+    <div id="my-scrollbar">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-dent">
+            <div class="container navbar-dent-container">
+                <!-- Logo & Brand Name -->
+                <a class="navbar-brand hide" href="/anasayfa">
+                    <div class="d-flex align-items-center">
+                        <span class="fw-bold fs-4 text-primary">Elşan</span>
+                        <span class="fw-bold fs-4 text-dark ms-1">Dilber</span>
+                        <span class="fs-6 text-muted ms-2">Diş Polikliniği</span>
+                    </div>
+                </a>
+
+                <div class="only-mobile-nav align-items-center justify-content-between w-100">
+                    <!-- Logo & Brand Name -->
+                    <a class="navbar-brand d-flex align-items-center" href="/anasayfa">
+                        <span class="fw-bold fs-4 text-primary">Elşan</span>
+                        <span class="fw-bold fs-4 text-dark ms-1">Dilber</span>
+                        <span class="fs-6 text-muted ms-2">Diş Polikliniği</span>
+                    </a>
+
+                    <!-- Custom Mobile Menu Button -->
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <!-- Nav Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav" style="display: flex; justify-content: center; align-items: center;">
+                        <li class="nav-item">
+                            <a class="nav-dent-link nav-dent-link-active" href="/anasayfa"
+                                style="margin-left: 60px;">Anasayfa</a>
+                        </li>
+                        <li class="nav-item tedavi-dropdown">
+                            <a class="nav-dent-link" href="/tedaviler">Tedaviler
+                                <svg class="tedavi-icon" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                    width="16.000000pt" height="16.000000pt" viewBox="0 0 16.000000 16.000000"
+                                    preserveAspectRatio="xMidYMid meet">
+
+                                    <g transform="translate(0.000000,16.000000) scale(0.100000,-0.100000)"
+                                        fill="currentColor" stroke="none">
+                                        <path d="M47 78 l33 -32 30 29 c16 16 28 31 25 33 -3 3 -16 -5 -30 -18 l-25
+                                            -23 -23 21 c-37 35 -45 26 -10 -10z" />
+                                    </g>
+                                </svg>
+                            </a>
+                            <ul class="tedavi-dropdown-menu">
+                                <li><a href="/tedaviler/genel_dis_bakimi">Genel Diş Bakımı</a></li>
+                                <li><a href="/tedaviler/cocuk_dis_hekimligi">Çocuk Diş Hekimliği</a></li>
+                                <li><a href="/tedaviler/implant_tedavisi">Diş İmplantları</a></li>
+                                <li><a href="/tedaviler/dis_beyazlatma">Diş Beyazlatma</a></li>
+                                <li><a href="/tedaviler/dis_estetigi">Diş Estetiği</a></li>
+                                <li><a href="/tedaviler/dis_eti_hastaliklari">Diş Eti Hastalıkları</a></li>
+                                <li><a href="/tedaviler/kanal_tedavisi">Kanal Tedavisi</a></li>
+                                <li><a href="/tedaviler/invisalign_tedavisi">Invisalign Tedavisi</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-dent-link" href="/galeri">Galeri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-dent-link" href="/hakkimizda">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-dent-link" href="/iletisim">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="randevu-al-div">
+                    <a class="randevu-al" href="/iletisim">
+                        Randevu Al <span class="icon">↗</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Google Review Section -->
+        <section class="review-section">
+            <div class="container review-wrapper">
+                <!-- Left Content -->
+                <div class="review-col-left">
+                    <h2 class="review-header review-header-primary">Diş Tedavinizde</h2>
+                    <h2 class="review-header review-header-secondary">Uzman Dokunuşuyla</h2>
+                    <h2 class="review-header review-header-secondary">Mükemmel Deneyim</h2>
+
+                    <p class="review-text">Elşan Dilber Diş Polikliniğimiz, dostane ve özenli diş hekimliği
+                        hizmetleri sunarak genel, kozmetik ve uzmanlık gerektiren tedavilerde en yüksek standartları
+                        hedefler.</p>
+
+                    <div class="review-btn-container">
+                        <a href="/iletisim" class="review-btn-link">
+                            <button class="review-btn">
+                                Randevu Al <span class="btn-icon">↗</span>
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="review-divider"></div>
+
+                    <p class="review-rating">
+                        Google Rating
+                        <span class="rating-value">4,8
+                            <span class="stars-container">
+                                <!-- 5 yıldız SVG -->
+                                <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="16"
+                                    height="16">
+                                    <path fill="#FFAC33"
+                                        d="M27.287 34.627c-.404 0-.806-.124-1.152-.371L18 28.422l-8.135 5.834c-.693.496-1.623.496-2.312-.008-.689-.499-.979-1.385-.721-2.194l3.034-9.792-8.062-5.681c-.685-.505-.97-1.393-.708-2.203.264-.808 1.016-1.357 1.866-1.363L12.947 13l3.179-9.549c.268-.809 1.023-1.353 1.874-1.353.851 0 1.606.545 1.875 1.353L23 13l10.036.015c.853.006 1.606.556 1.867 1.363.263.81-.022 1.698-.708 2.203l-8.062 5.681 3.034 9.792c.26.809-.033 1.695-.72 2.194-.347.254-.753.379-1.16.379z" />
+                                </svg>
+                                <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="16"
+                                    height="16">
+                                    <path fill="#FFAC33"
+                                        d="M27.287 34.627c-.404 0-.806-.124-1.152-.371L18 28.422l-8.135 5.834c-.693.496-1.623.496-2.312-.008-.689-.499-.979-1.385-.721-2.194l3.034-9.792-8.062-5.681c-.685-.505-.97-1.393-.708-2.203.264-.808 1.016-1.357 1.866-1.363L12.947 13l3.179-9.549c.268-.809 1.023-1.353 1.874-1.353.851 0 1.606.545 1.875 1.353L23 13l10.036.015c.853.006 1.606.556 1.867 1.363.263.81-.022 1.698-.708 2.203l-8.062 5.681 3.034 9.792c.26.809-.033 1.695-.72 2.194-.347.254-.753.379-1.16.379z" />
+                                </svg>
+                                <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="16"
+                                    height="16">
+                                    <path fill="#FFAC33"
+                                        d="M27.287 34.627c-.404 0-.806-.124-1.152-.371L18 28.422l-8.135 5.834c-.693.496-1.623.496-2.312-.008-.689-.499-.979-1.385-.721-2.194l3.034-9.792-8.062-5.681c-.685-.505-.97-1.393-.708-2.203.264-.808 1.016-1.357 1.866-1.363L12.947 13l3.179-9.549c.268-.809 1.023-1.353 1.874-1.353.851 0 1.606.545 1.875 1.353L23 13l10.036.015c.853.006 1.606.556 1.867 1.363.263.81-.022 1.698-.708 2.203l-8.062 5.681 3.034 9.792c.26.809-.033 1.695-.72 2.194-.347.254-.753.379-1.16.379z" />
+                                </svg>
+                                <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="16"
+                                    height="16">
+                                    <path fill="#FFAC33"
+                                        d="M27.287 34.627c-.404 0-.806-.124-1.152-.371L18 28.422l-8.135 5.834c-.693.496-1.623.496-2.312-.008-.689-.499-.979-1.385-.721-2.194l3.034-9.792-8.062-5.681c-.685-.505-.97-1.393-.708-2.203.264-.808 1.016-1.357 1.866-1.363L12.947 13l3.179-9.549c.268-.809 1.023-1.353 1.874-1.353.851 0 1.606.545 1.875 1.353L23 13l10.036.015c.853.006 1.606.556 1.867 1.363.263.81-.022 1.698-.708 2.203l-8.062 5.681 3.034 9.792c.26.809-.033 1.695-.72 2.194-.347.254-.753.379-1.16.379z" />
+                                </svg>
+                                <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="16"
+                                    height="16">
+                                    <path fill="#FFAC33"
+                                        d="M27.287 34.627c-.404 0-.806-.124-1.152-.371L18 28.422l-8.135 5.834c-.693.496-1.623.496-2.312-.008-.689-.499-.979-1.385-.721-2.194l3.034-9.792-8.062-5.681c-.685-.505-.97-1.393-.708-2.203.264-.808 1.016-1.357 1.866-1.363L12.947 13l3.179-9.549c.268-.809 1.023-1.353 1.874-1.353.851 0 1.606.545 1.875 1.353L23 13l10.036.015c.853.006 1.606.556 1.867 1.363.263.81-.022 1.698-.708 2.203l-8.062 5.681 3.034 9.792c.26.809-.033 1.695-.72 2.194-.347.254-.753.379-1.16.379z" />
+                                </svg>
+                            </span>
+                        </span>
+                        Based on 19 Reviews
+                    </p>
+                </div>
+
+                <!-- Right Content -->
+                <div class="review-col-right">
+                    <img src="/static/images/img-dentist.png" alt="Diş Tedavisi" class="review-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <!-- İletişim Bilgileri -->
+                <div class="contact-info">
+                    <div class="contact-icon">
+                        <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                            viewBox="0 0 40 40" fill="none">
+                            <path
+                                d="M37.0565 37.1183L38.6865 35.2433C39.5331 34.3967 39.9998 33.27 39.9998 32.0733C39.9998 30.8767 39.5331 29.7484 38.6048 28.8317L34.5282 25.71C32.7815 23.9634 29.9399 23.9617 28.1899 25.705L25.6365 28.195C19.5032 25.6967 14.5066 20.6951 11.8133 14.3568L14.2933 11.8151C16.0416 10.0668 16.0416 7.22179 14.3649 5.55513L11.0999 1.31682C9.40495 -0.37817 6.41164 -0.33817 4.79998 1.27849L2.84332 2.98515C1.00833 4.81014 0 7.28846 0 9.96011C0 22.8751 17.1249 40 30.0399 40C32.7115 40 35.1882 38.9916 37.0565 37.1183ZM9.84828 2.41015L13.1133 6.64846C14.2116 7.74679 14.2116 9.53512 13.1066 10.6418L10.2366 13.5851C10.0066 13.8218 9.93662 14.1718 10.06 14.4784C12.9416 21.6534 18.5816 27.2917 25.5365 29.945C25.8399 30.0617 26.1832 29.99 26.4149 29.765L29.3582 26.895C29.3582 26.895 29.3632 26.89 29.3649 26.8867C30.4298 25.82 32.2048 25.7517 33.4315 26.9584L37.5081 30.08C38.6065 31.1783 38.6065 32.965 37.4698 34.1067L35.8382 35.9817C34.3248 37.4983 32.2648 38.3333 30.0399 38.3333C18.1066 38.3333 1.66666 21.8934 1.66666 9.96011C1.66666 7.73512 2.50165 5.67513 3.97831 4.20014L5.93664 2.49182C6.49663 1.93182 7.23496 1.65849 7.96163 1.65849C8.65996 1.65849 9.34662 1.91182 9.84995 2.41182L9.84828 2.41015Z"
+                                fill="white"></path>
+                            <path
+                                d="M38.3333 17.5C38.3333 17.96 38.7067 18.3334 39.1667 18.3334C39.6267 18.3334 40 17.96 40 17.5C40 7.85008 32.15 0.00012207 22.5001 0.00012207C22.0401 0.00012207 21.6667 0.373454 21.6667 0.833451C21.6667 1.29345 22.0401 1.66678 22.5001 1.66678C31.23 1.66678 38.3333 8.77008 38.3333 17.5Z"
+                                fill="#1E84B5"></path>
+                            <path
+                                d="M22.5001 6.66676C28.4734 6.66676 33.3334 11.5267 33.3334 17.5C33.3334 17.96 32.96 18.3334 32.5 18.3334C32.04 18.3334 31.6667 17.96 31.6667 17.5C31.6667 12.4451 27.5551 8.33342 22.5001 8.33342C22.0401 8.33342 21.6667 7.96008 21.6667 7.50009C21.6667 7.04009 22.0401 6.66676 22.5001 6.66676Z"
+                                fill="#1E84B5"></path>
+                        </svg>
+                    </div>
+
+                    <div class="contact-details">
+                        <h2>İletişim</h2>
+                        <p>Telefon : (0506) 993 00 41</p>
+                        <p>Whatsapp: (0506) 993 00 41</p>
+                        <br>
+                        <p>Elşan Dilber Diş Polikliniği</p>
+                        <p>Mimar Sinan Mah. Mehmet Akif Ersoy Cad.</p>
+                        <p>No:110/A, Körfez, Kocaeli</p>
+                    </div>
+                </div>
+
+                <!-- Ayırıcı -->
+                <div class="contact-divider"></div>
+
+                <!-- Çalışma Saatleri -->
+                <div class="contact-info">
+                    <div class="contact-icon">
+
+                        <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                            viewBox="0 0 40 40" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M19.1835 1.0405C14.4805 1.34131 9.98104 3.38718 6.65374 6.73763C3.69352 9.7185 1.80071 13.5099 1.15495 17.7515C0.947383 19.115 0.948514 21.7658 1.15738 23.1887C2.22577 30.4686 7.21802 36.5257 14.0978 38.889C15.9512 39.5257 18.2698 39.9532 19.8693 39.9532C20.382 39.9532 20.4903 39.9245 20.6752 39.7395C20.9526 39.4622 20.9578 39.0564 20.6877 38.7863C20.5132 38.6118 20.3651 38.5768 19.5776 38.5239C17.4744 38.3826 15.5699 37.9719 13.8366 37.2855C9.5821 35.6009 6.18211 32.4675 4.21356 28.417C3.03487 25.9916 2.47817 23.766 2.37352 21.06C2.15237 15.3414 4.79568 9.66356 9.29609 6.19034C14.8386 1.91307 22.1235 1.15813 28.4201 4.20847C30.2413 5.09079 31.906 6.31153 33.4293 7.88194C34.8503 9.34673 35.7534 10.6208 36.6495 12.4248C37.9165 14.9758 38.4986 17.4998 38.5004 20.4505C38.5021 23.3745 37.9553 25.7621 36.6858 28.3735C36.1879 29.3977 34.9474 31.4207 34.8172 31.4208C34.792 31.4208 34.8209 30.808 34.8814 30.0592C34.9694 28.9709 34.9696 28.652 34.8829 28.471C34.6007 27.8824 33.78 27.9694 33.6092 28.6061C33.5146 28.959 33.2496 32.1893 33.2513 32.9706C33.253 33.7554 33.6424 34.2079 34.3145 34.2061C34.4725 34.2057 35.5813 33.9525 36.7784 33.6435C38.6344 33.1645 38.9839 33.0485 39.1509 32.8559C39.2587 32.7317 39.3468 32.5395 39.3468 32.4289C39.3468 32.1686 39.057 31.8026 38.7996 31.738C38.6864 31.7096 38.03 31.8375 37.3009 32.0303C36.5876 32.2188 35.9903 32.3594 35.9738 32.3429C35.9571 32.3264 36.1614 32.0093 36.4275 31.6383C38.1441 29.2457 39.338 26.1605 39.7964 22.9319C39.9613 21.7711 39.9373 18.9738 39.7516 17.7172C39.3333 14.8867 38.2357 12.0294 36.67 9.69481C32.7556 3.85812 26.1609 0.59429 19.1835 1.0405ZM18.5929 6.91255C14.7717 7.53489 11.4962 9.62055 9.38455 12.7756C6.3343 17.3332 6.33569 23.1314 9.38812 27.6961C11.3394 30.6143 14.414 32.6741 17.9632 33.4412C19.243 33.7178 21.8441 33.7164 23.1308 33.4386C26.9938 32.6045 30.1849 30.3219 32.1595 26.9802C34.0025 23.8613 34.4792 20.0623 33.4711 16.5268C32.1176 11.7806 28.1202 8.09028 23.1962 7.04175C22.0461 6.79684 19.7063 6.73119 18.5929 6.91255ZM18.4443 8.39649C17.3134 8.60127 15.233 9.32557 15.2307 9.51528C15.2301 9.55847 15.406 9.89942 15.6215 10.273C15.837 10.6466 16.0133 11.0538 16.0133 11.178C16.0133 11.5033 15.6515 11.8311 15.2924 11.8311C14.9385 11.8311 14.7683 11.6617 14.3078 10.8516C14.1241 10.5283 13.9357 10.2639 13.8894 10.2639C13.72 10.2639 12.5339 11.2424 11.9031 11.9026C10.9812 12.8676 10.4741 13.5706 10.6266 13.6722C10.6922 13.7158 10.9904 13.8907 11.2892 14.0608C12.1767 14.566 12.3984 15.0185 11.9687 15.4482C11.6463 15.7706 11.2933 15.7269 10.5282 15.2701C10.169 15.0557 9.8494 14.8798 9.81797 14.8793C9.72907 14.8778 9.25413 16.0709 9.0194 16.8857C8.8309 17.54 8.71789 18.1263 8.58129 19.1586L8.53915 19.4773L9.45429 19.5068C10.3411 19.5355 10.3761 19.5442 10.5875 19.79C10.7578 19.9881 10.7937 20.1024 10.7517 20.3121C10.6485 20.8286 10.4515 20.9261 9.44437 20.9589L8.53915 20.9884L8.58129 21.3072C8.71789 22.3394 8.8309 22.9257 9.0194 23.58C9.25413 24.3949 9.72907 25.5879 9.81797 25.5864C9.8494 25.5859 10.169 25.4101 10.5282 25.1956C11.2933 24.7389 11.6463 24.6952 11.9687 25.0176C12.3984 25.4472 12.1767 25.8998 11.2892 26.405C10.9904 26.5751 10.6907 26.7509 10.6233 26.7956C10.3709 26.9633 12.1256 28.9409 13.3222 29.8372C13.5899 30.0378 13.846 30.2019 13.8913 30.2019C13.9366 30.2019 14.1241 29.9374 14.3078 29.6142C14.7683 28.804 14.9385 28.6347 15.2924 28.6347C15.6541 28.6347 16.0133 28.9624 16.0133 29.2923C16.0133 29.419 15.8217 29.848 15.5877 30.2456L15.1621 30.9687L15.7401 31.2312C16.8255 31.7241 18.7269 32.2027 19.6047 32.204L19.8442 32.2044V31.3298C19.8442 30.5172 19.8593 30.44 20.0579 30.2415C20.3406 29.9587 20.7408 29.9587 21.0235 30.2415C21.2224 30.4403 21.2372 30.5164 21.2372 31.3423V32.2295L21.7814 32.1787C22.9113 32.0732 24.363 31.6836 25.5203 31.1754L25.9289 30.9958L25.4987 30.2289C25.2621 29.8069 25.0684 29.3719 25.0683 29.262C25.068 28.9561 25.4411 28.6347 25.7965 28.6347C26.1521 28.6347 26.3619 28.8507 26.8448 29.7141L27.1637 30.2843L27.6177 29.9606C28.2812 29.4876 29.5259 28.2661 30.0755 27.5486C30.3383 27.2056 30.5532 26.9035 30.5532 26.8774C30.5532 26.8512 30.2407 26.6482 29.8587 26.4263C29.4767 26.2044 29.1011 25.9263 29.0239 25.8086C28.8474 25.5393 28.9261 25.1169 29.1865 24.9345C29.4977 24.7165 29.8464 24.7827 30.5624 25.1956C30.936 25.4111 31.2592 25.5874 31.2805 25.5874C31.3539 25.5874 31.9335 24.1204 32.1134 23.4794C32.2554 22.9731 32.5526 21.3365 32.5552 21.0462C32.5555 21.0146 32.1453 20.9755 31.6437 20.9591C30.839 20.9329 30.709 20.9066 30.538 20.7354C30.4106 20.608 30.3443 20.4357 30.3443 20.2329C30.3443 20.03 30.4106 19.8578 30.538 19.7303C30.7092 19.5591 30.8389 19.5329 31.6479 19.5066L32.564 19.4767L32.5103 19.0712C32.377 18.0643 32.1784 17.1521 31.9322 16.416C31.7113 15.7554 31.4008 15.019 31.2903 14.8933C31.2765 14.8776 30.9542 15.0441 30.5741 15.2633C30.1675 15.4979 29.7742 15.6619 29.6184 15.6619C29.0479 15.6619 28.7247 15.0364 29.069 14.5986C29.17 14.4703 29.5453 14.2037 29.9029 14.0062C30.2606 13.8087 30.5532 13.6254 30.5532 13.5987C30.5532 13.572 30.3593 13.2885 30.1223 12.9688C29.6268 12.3003 28.2836 10.9789 27.6177 10.5048L27.1637 10.1814L26.8448 10.7516C26.3619 11.615 26.1521 11.8311 25.7965 11.8311C25.4411 11.8311 25.068 11.5097 25.0683 11.2037C25.0684 11.0939 25.261 10.6607 25.4963 10.2412C25.9808 9.37755 26.0199 9.48237 25.0681 9.09258C24.2711 8.76617 22.6896 8.36898 21.9028 8.29767L21.2372 8.23734V9.12401C21.2372 9.94922 21.2224 10.0254 21.0235 10.2243C20.7408 10.507 20.3406 10.507 20.0579 10.2243C19.8593 10.0258 19.8442 9.94852 19.8442 9.13594V8.26137L19.4741 8.2692C19.2706 8.27347 18.8072 8.33076 18.4443 8.39649Z"
+                                fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M19.1835 1.0405C14.4805 1.34131 9.98104 3.38718 6.65374 6.73763C3.69352 9.7185 1.80071 13.5099 1.15495 17.7515C0.947383 19.115 0.948514 21.7658 1.15738 23.1887C2.22577 30.4686 7.21802 36.5257 14.0978 38.889C15.9512 39.5257 18.2698 39.9532 19.8693 39.9532C20.382 39.9532 20.4903 39.9245 20.6752 39.7395C20.9526 39.4622 20.9578 39.0564 20.6877 38.7863C20.5132 38.6118 20.3651 38.5768 19.5776 38.5239C17.4744 38.3826 15.5699 37.9719 13.8366 37.2855C9.5821 35.6009 6.18211 32.4675 4.21356 28.417C3.03487 25.9916 2.47817 23.766 2.37352 21.06C2.15237 15.3414 4.79568 9.66356 9.29609 6.19034C14.8386 1.91307 22.1235 1.15813 28.4201 4.20847C30.2413 5.09079 31.906 6.31153 33.4293 7.88194C34.8503 9.34673 35.7534 10.6208 36.6495 12.4248C37.9165 14.9758 38.4986 17.4998 38.5004 20.4505C38.5021 23.3745 37.9553 25.7621 36.6858 28.3735C36.1879 29.3977 34.9474 31.4207 34.8172 31.4208C34.792 31.4208 34.8209 30.808 34.8814 30.0592C34.9694 28.9709 34.9696 28.652 34.8829 28.471C34.6007 27.8824 33.78 27.9694 33.6092 28.6061C33.5146 28.959 33.2496 32.1893 33.2513 32.9706C33.253 33.7554 33.6424 34.2079 34.3145 34.2061C34.4725 34.2057 35.5813 33.9525 36.7784 33.6435C38.6344 33.1645 38.9839 33.0485 39.1509 32.8559C39.2587 32.7317 39.3468 32.5395 39.3468 32.4289C39.3468 32.1686 39.057 31.8026 38.7996 31.738C38.6864 31.7096 38.03 31.8375 37.3009 32.0303C36.5876 32.2188 35.9903 32.3594 35.9738 32.3429C35.9571 32.3264 36.1614 32.0093 36.4275 31.6383C38.1441 29.2457 39.338 26.1605 39.7964 22.9319C39.9613 21.7711 39.9373 18.9738 39.7516 17.7172C39.3333 14.8867 38.2357 12.0294 36.67 9.69481C32.7556 3.85812 26.1609 0.59429 19.1835 1.0405Z"
+                                fill="#1E84B5"></path>
+                            <path
+                                d="M19.4531 12.571L19.6449 12.3793C19.7658 12.2584 19.9259 12.1875 20.0781 12.1875C20.2303 12.1875 20.3905 12.2584 20.5113 12.3793L20.7031 12.571V16.055C20.7031 19.1285 20.7182 19.5684 20.8311 19.7891C20.9015 19.9266 21.5167 20.9912 22.1983 22.1548C23.067 23.638 23.4375 24.342 23.4375 24.5095C23.4375 24.817 23.2288 25.0652 22.9201 25.1248C22.722 25.163 22.6319 25.1299 22.441 24.9492C22.1944 24.7156 19.7299 20.5504 19.559 20.0781C19.4846 19.8728 19.4591 18.904 19.4566 16.1879L19.4531 12.571Z"
+                                fill="white"></path>
+                        </svg>
+                    </div>
+
+                    <div class="contact-details">
+                        <h2>Çalışma Günlerimiz</h2>
+                        <p>Pzt : 10:00 – 18:00</p>
+                        <p>Sal : 10:00 – 18:00</p>
+                        <p>Çar : 10:00 – 18:00</p>
+                        <p>Per : 10:00 – 18:00</p>
+                        <p>Cum : 10:00 – 18:00</p>
+                        <p>Cmt : 11:00 – 18:00</p>
+                    </div>
+                </div>
+
+                <!-- Ayırıcı -->
+                <div class="contact-divider"></div>
+
+                <!-- Randevu Butonu -->
+                <div class="contact-appointment">
+                    <a class="appointment-btn" href="/iletisim">
+                        Randevu Oluştur <span class="btn-icon">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="about-section">
+            <div class="container about-wrapper">
+                <!-- Left Content -->
+                <div class="about-col-left">
+                    <div class="about-images">
+                        <div class="about-img-top">
+                            <img src="/static/images/about-top-image.jpg" alt="Diş muayenesi" />
+                        </div>
+
+                        <div class="about-img-bottom">
+                            <img src="/static/images/about-bottom-image.jpg" alt="Diş kliniği iç mekânı" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="about-col-right">
+                    <p class="section-title">
+                        <svg class="section-star" version="1.0" xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor"
+                                stroke="none">
+                                <path d="M1877 5050 c-3 -8 -19 -89 -37 -180 -153 -775 -324 -1109 -678 -1323
+                    -198 -120 -514 -222 -952 -307 -91 -17 -172 -34 -180 -37 -8 -3 69 -23 172
+                    -43 640 -129 952 -256 1172 -476 207 -207 344 -545 461 -1131 19 -98 38 -189
+                    41 -203 4 -16 21 47 49 185 131 644 247 929 469 1151 222 221 498 334 1145
+                    469 113 23 199 45 191 48 -8 3 -98 22 -200 42 -591 117 -925 253 -1136 464
+                    -215 214 -337 510 -464 1126 -26 127 -50 223 -53 215z" />
+                                <path d="M3916 2390 c-109 -514 -166 -665 -307 -815 -137 -144 -310 -218 -719
+                    -305 -79 -17 -145 -32 -147 -34 -2 -2 59 -15 134 -30 367 -72 580 -158 715
+                    -289 138 -135 218 -323 294 -691 19 -93 36 -171 37 -173 2 -1 20 80 41 180 84
+                    405 187 619 358 740 141 100 310 162 605 223 100 21 181 39 180 41 -2 1 -80
+                    18 -173 37 -368 76 -556 156 -691 294 -130 134 -211 331 -283 689 -37 180 -35
+                    176 -44 133z" />
+                            </g>
+                        </svg>
+                        Hakkımızda
+                    </p>
+                    <h2 class="about-header about-header-primary">Daha Sağlıklı</h2>
+                    <h2 class="about-header about-header-secondary">Bir Gülümsemeye</h2>
+                    <h2 class="about-header about-header-secondary">Yolculuğunuz Burada</h2>
+                    <h2 class="about-header about-header-secondary">Başlıyor</h2>
+
+                    <p class="about-text">Diş kliniğimiz, dostane ve özenli diş hekimliği hizmetleri sunarak; Körfezde
+                        genel, kozmetik ve uzmanlık gerektiren tedavilerde en yüksek standartları hedefler.</p>
+
+                    <div class="about-features">
+                        <div class="about-feature-item">
+                            <svg class="about-checked-icon" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                    fill="currentColor" stroke="none">
+                                    <path d="M3775 3635 c-22 -8 -42 -15 -45 -15 -2 0 -372 -368 -822 -817 l-818
+                        -818 -352 351 c-366 364 -379 374 -458 374 -149 0 -255 -170 -190 -304 13 -27
+                        168 -189 457 -477 457 -455 463 -459 544 -459 85 0 56 -27 1012 928 645 645
+                        914 919 928 950 31 62 23 147 -17 205 -54 77 -158 113 -239 82z" />
+                                </g>
+                            </svg>
+                            <span>Deneyimli Ekip</span>
+                        </div>
+
+                        <div class="about-feature-item">
+                            <svg class="about-checked-icon" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                    fill="currentColor" stroke="none">
+                                    <path d="M3775 3635 c-22 -8 -42 -15 -45 -15 -2 0 -372 -368 -822 -817 l-818
+                        -818 -352 351 c-366 364 -379 374 -458 374 -149 0 -255 -170 -190 -304 13 -27
+                        168 -189 457 -477 457 -455 463 -459 544 -459 85 0 56 -27 1012 928 645 645
+                        914 919 928 950 31 62 23 147 -17 205 -54 77 -158 113 -239 82z" />
+                                </g>
+                            </svg>
+                            <span>Kapsamlı Hizmetler</span>
+                        </div>
+
+                        <div class="about-feature-item">
+                            <svg class="about-checked-icon" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                    fill="currentColor" stroke="none">
+                                    <path d="M3775 3635 c-22 -8 -42 -15 -45 -15 -2 0 -372 -368 -822 -817 l-818
+                        -818 -352 351 c-366 364 -379 374 -458 374 -149 0 -255 -170 -190 -304 13 -27
+                        168 -189 457 -477 457 -455 463 -459 544 -459 85 0 56 -27 1012 928 645 645
+                        914 919 928 950 31 62 23 147 -17 205 -54 77 -158 113 -239 82z" />
+                                </g>
+                            </svg>
+                            <span>Son Teknolojik Cihazlar</span>
+                        </div>
+
+                        <div class="about-feature-item">
+                            <svg class="about-checked-icon" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                    fill="currentColor" stroke="none">
+                                    <path d="M3775 3635 c-22 -8 -42 -15 -45 -15 -2 0 -372 -368 -822 -817 l-818
+                        -818 -352 351 c-366 364 -379 374 -458 374 -149 0 -255 -170 -190 -304 13 -27
+                        168 -189 457 -477 457 -455 463 -459 544 -459 85 0 56 -27 1012 928 645 645
+                        914 919 928 950 31 62 23 147 -17 205 -54 77 -158 113 -239 82z" />
+                                </g>
+                            </svg>
+                            <span>Acil Diş Hizmetleri</span>
+                        </div>
+                    </div>
+
+                    <div class="about-btn-container">
+                        <a href="/hakkimizda" class="about-btn-link">
+                            <button class="about-btn">
+                                Hakkımızda Daha Fazla Bilgi<span class="btn-icon">↗</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-container">
+                <div class="services-header">
+                    <p class="services-subtitle">
+                        <svg class="services-star" version="1.0" xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor"
+                                stroke="none">
+                                <path d="M1877 5050 c-3 -8 -19 -89 -37 -180 -153 -775 -324 -1109 -678 -1323
+                        -198 -120 -514 -222 -952 -307 -91 -17 -172 -34 -180 -37 -8 -3 69 -23 172
+                        -43 640 -129 952 -256 1172 -476 207 -207 344 -545 461 -1131 19 -98 38 -189
+                        41 -203 4 -16 21 47 49 185 131 644 247 929 469 1151 222 221 498 334 1145
+                        469 113 23 199 45 191 48 -8 3 -98 22 -200 42 -591 117 -925 253 -1136 464
+                        -215 214 -337 510 -464 1126 -26 127 -50 223 -53 215z" />
+                                <path d="M3916 2390 c-109 -514 -166 -665 -307 -815 -137 -144 -310 -218 -719
+                        -305 -79 -17 -145 -32 -147 -34 -2 -2 59 -15 134 -30 367 -72 580 -158 715
+                        -289 138 -135 218 -323 294 -691 19 -93 36 -171 37 -173 2 -1 20 80 41 180 84
+                        405 187 619 358 740 141 100 310 162 605 223 100 21 181 39 180 41 -2 1 -80
+                        18 -173 37 -368 76 -556 156 -691 294 -130 134 -211 331 -283 689 -37 180 -35
+                        176 -44 133z" />
+                            </g>
+                        </svg>
+                        Hizmetlerimiz
+                    </p>
+
+                    <h2 class="services-title">
+                        <span class="services-title-primary">Sizin İçin</span>
+                        <span class="services-title-secondary">Yüksek Kaliteli Hizmetler</span>
+                    </h2>
+
+                    <p class="services-description">Sürdürülebilirliğe bağlıyız ve çevre dostu girişimlerde bulunuyoruz.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3 class="service-card-title">Genel Diş Bakımı</h3>
+                        <p class="service-card-text">Aileniz için en iyi diş bakımını sunmaktan mutluluk duyuyoruz.</p>
+                        <div class="service-card-btn">
+                            <a href="/tedaviler/genel_dis_bakimi" class="service-link">
+                                <span class="service-link-text">Daha Fazla Bilgi</span>
+                                <span class="service-link-icon">↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <h3 class="service-card-title">Diş İmplantları</h3>
+                        <p class="service-card-text">Eksik dişlerinizi tamamlamak için güvenilir çözümler sunuyoruz.</p>
+                        <div class="service-card-btn">
+                            <a href="/tedaviler/implant_tedavisi" class="service-link">
+                                <span class="service-link-text">Daha Fazla Bilgi</span>
+                                <span class="service-link-icon">↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <h3 class="service-card-title">Invisalign Tedavisi</h3>
+                        <p class="service-card-text">Şeffaf plaklarla dişleri hizalayan estetik bir ortodontik tedavi
+                            sunuyoruz.</p>
+                        <div class="service-card-btn">
+                            <a href="/tedaviler/invisalign_tedavisi" class="service-link">
+                                <span class="service-link-text">Daha Fazla Bilgi</span>
+                                <span class="service-link-icon">↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <h3 class="service-card-title">Diş Beyazlatma</h3>
+                        <p class="service-card-text">Daha parlak bir gülümseme için profesyonel beyazlatma hizmetleri
+                            sunuyoruz.</p>
+                        <div class="service-card-btn">
+                            <a href="/tedaviler/dis_beyazlatma" class="service-link">
+                                <span class="service-link-text">Daha Fazla Bilgi</span>
+                                <span class="service-link-icon">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-footer">
+                    <p class="services-footer-text">Hastalarımız için en iyi tedaviyi verebilmek için en son</p>
+                    <p class="services-footer-text">teknoloji ve teknikleri kullanmaya özen gösteriyoruz.</p>
+
+                    <div class="services-footer-btn">
+                        <a href="/tedaviler" class="services-all-link">
+                            <span class="services-all-text">Tüm Hizmetleri Görüntüle</span>
+                            <span class="services-all-icon">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ziyaret Edin Section -->
+        <section class="visit-section">
+            <div class="visit-container">
+                <div class="visit-content">
+                    <div class="section-header">
+                        <p class="section-title visit-title">
+                            <svg class="section-star" version="1.0" xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                    fill="currentColor" stroke="none">
+                                    <path d="M1877 5050 c-3 -8 -19 -89 -37 -180 -153 -775 -324 -1109 -678 -1323
+                        -198 -120 -514 -222 -952 -307 -91 -17 -172 -34 -180 -37 -8 -3 69 -23 172
+                        -43 640 -129 952 -256 1172 -476 207 -207 344 -545 461 -1131 19 -98 38 -189
+                        41 -203 4 -16 21 47 49 185 131 644 247 929 469 1151 222 221 498 334 1145
+                        469 113 23 199 45 191 48 -8 3 -98 22 -200 42 -591 117 -925 253 -1136 464
+                        -215 214 -337 510 -464 1126 -26 127 -50 223 -53 215z" />
+                                    <path d="M3916 2390 c-109 -514 -166 -665 -307 -815 -137 -144 -310 -218 -719
+                        -305 -79 -17 -145 -32 -147 -34 -2 -2 59 -15 134 -30 367 -72 580 -158 715
+                        -289 138 -135 218 -323 294 -691 19 -93 36 -171 37 -173 2 -1 20 80 41 180 84
+                        405 187 619 358 740 141 100 310 162 605 223 100 21 181 39 180 41 -2 1 -80
+                        18 -173 37 -368 76 -556 156 -691 294 -130 134 -211 331 -283 689 -37 180 -35
+                        176 -44 133z" />
+                                </g>
+                            </svg>
+                            Elşan Dilber Diş Kliniğimizi Ziyaret Edin
+                        </p>
+                    </div>
+
+                    <div class="visit-heading">
+                        <h2 class="visit-header">Her Yaş İçin Kapsamlı Diş</h2>
+                        <h2 class="visit-header">Bakımı</h2>
+                    </div>
+
+                    <div class="visit-button-container">
+                        <a href="/iletisim" class="visit-button-link">
+                            <button class="visit-button">
+                                Randevu Al<span class="button-icon">↗</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sayılar Section -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h2 class="stat-number">5,000+</h2>
+                    <p class="stat-text">Gelen Hasta Sayısı</p>
+                </div>
+                <div class="stat-box">
+                    <h2 class="stat-number">25,000+</h2>
+                    <p class="stat-text">Tedavi Sayısı</p>
+                </div>
+                <div class="stat-box">
+                    <h2 class="stat-number">1,000+</h2>
+                    <p class="stat-text">Implant Sayısı</p>
+                </div>
+                <div class="stat-box">
+                    <h2 class="stat-number">3</h2>
+                    <p class="stat-text">Yıldır Körfez'deyiz</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Neden Section -->
+        <section class="neden-section">
+            <div class="neden-container">
+                <div class="neden-header">
+                    <div class="service-titles-wrapper">
+                        <p class="section-title service-title centered">
+                            <svg class="section-star" version="1.0" xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                    fill="currentColor" stroke="none">
+                                    <path d="M1877 5050 c-3 -8 -19 -89 -37 -180 -153 -775 -324 -1109 -678 -1323
+                            -198 -120 -514 -222 -952 -307 -91 -17 -172 -34 -180 -37 -8 -3 69 -23 172
+                            -43 640 -129 952 -256 1172 -476 207 -207 344 -545 461 -1131 19 -98 38 -189
+                            41 -203 4 -16 21 47 49 185 131 644 247 929 469 1151 222 221 498 334 1145
+                            469 113 23 199 45 191 48 -8 3 -98 22 -200 42 -591 117 -925 253 -1136 464
+                            -215 214 -337 510 -464 1126 -26 127 -50 223 -53 215z" />
+                                    <path d="M3916 2390 c-109 -514 -166 -665 -307 -815 -137 -144 -310 -218 -719
+                            -305 -79 -17 -145 -32 -147 -34 -2 -2 59 -15 134 -30 367 -72 580 -158 715
+                            -289 138 -135 218 -323 294 -691 19 -93 36 -171 37 -173 2 -1 20 80 41 180 84
+                            405 187 619 358 740 141 100 310 162 605 223 100 21 181 39 180 41 -2 1 -80
+                            18 -173 37 -368 76 -556 156 -691 294 -130 134 -211 331 -283 689 -37 180 -35
+                            176 -44 133z" />
+                                </g>
+                            </svg>
+                            Neden Bizi Seçmelisiniz
+                        </p>
+                    </div>
+                    <h2 class="neden-title">Diş Sağlığı İçin <span>Hassas Tanı</span></h2>
+                    <p class="neden-description">
+                        En yeni teknolojileri şefkatli yaklaşımla bir araya getirerek, hastalarımıza üstün bir diş
+                        tedavisi deneyimi sunuyoruz.</p>
+                </div>
+
+                <div class="neden-wrapper">
+                    <div class="neden-left">
+                        <div class="neden-card">
+                            <div class="neden-icon">👨‍⚕️</div>
+                            <h4>Uzman Diş Hekimleri</h4>
+                            <p>Uzmanlık eğitimi almış ve yılların deneyimine sahip, kurul onaylı diş hekimleri.</p>
+                        </div>
+                        <div class="neden-card">
+                            <div class="neden-icon">✨</div>
+                            <h4>Kişiye Özel Tedavi Planları</h4>
+                            <p>Size özel diş ihtiyaçlarınız ve hedefleriniz doğrultusunda tasarlanmış kişiselleştirilmiş
+                                tedaviler.</p>
+                        </div>
+                        <div class="neden-card">
+                            <div class="neden-icon">💳</div>
+                            <h4>Esnek Ödeme Seçenekleri</h4>
+                            <p>Size kolaylık sağlaması için birden fazla ödeme seçeneği ve faizsiz taksit planları.</p>
+                        </div>
+                    </div>
+
+                    <div class="neden-center">
+                        <div class="neden-image-container">
+                            <img src="static/images/tooth.jpg" alt="Modern Dental Clinic" />
+                            <div class="neden-image-overlay"></div>
+                        </div>
+                    </div>
+
+                    <div class="neden-right">
+                        <div class="neden-card">
+                            <div class="neden-icon">🏛️</div>
+                            <h4>Konforlu ve Lüks Klinik Ortamı</h4>
+                            <p>
+                                Konforunuz için en son teknolojiye sahip, birinci sınıf olanaklarla donatılmış klinik
+                                ortamı.</p>
+                        </div>
+                        <div class="neden-card">
+                            <div class="neden-icon">😊</div>
+                            <h4>5.000'den Fazla Memnun Hasta</h4>
+                            <p>Başarılı tedavilerin ve mutlu gülümsemelerin kanıtlanmış geçmişi.</p>
+                        </div>
+                        <div class="neden-card">
+                            <div class="neden-icon">🔬</div>
+                            <h4>İleri Teknoloji</h4>
+                            <p>
+                                Dijital görüntüleme, lazer diş hekimliği ve son teknoloji teşhis ekipmanları.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Neler Yapıyoruz Section -->
+        <section class="neler-yapiyoruz-section">
+            <div class="ny-container">
+                <div class="ny-columns">
+                    <!-- Left Column - Patient Image -->
+                    <div class="ny-image-column">
+                        <div class="ny-image-container">
+                            <img src="static/images/happy.webp" alt="Mutlu Hasta" class="ny-main-image">
+                            <div class="ny-image-overlay"></div>
+                            <div class="ny-image-content">
+                                <h3>Sağlıklı Gülüşler</h3>
+                                <p>Binlerce hastamızın güvenle gülümsemesini sağladık</p>
+                                <div class="ny-stats">
+                                    <div class="ny-stat">
+                                        <span class="ny-stat-number">5.000+</span>
+                                        <span class="ny-stat-label">Mutlu Hasta</span>
+                                    </div>
+                                    <div class="ny-stat">
+                                        <span class="ny-stat-number">3+</span>
+                                        <span class="ny-stat-label">Yıllık Tecrübe</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Treatments -->
+                    <div class="ny-treatments-column">
+                        <div class="ny-header">
+                            <p class="section-ny">
+                                <svg class="section-star" version="1.0" xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+
+                                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                        fill="currentColor" stroke="none">
+                                        <path d="M1877 5050 c-3 -8 -19 -89 -37 -180 -153 -775 -324 -1109 -678 -1323
+                            -198 -120 -514 -222 -952 -307 -91 -17 -172 -34 -180 -37 -8 -3 69 -23 172
+                            -43 640 -129 952 -256 1172 -476 207 -207 344 -545 461 -1131 19 -98 38 -189
+                            41 -203 4 -16 21 47 49 185 131 644 247 929 469 1151 222 221 498 334 1145
+                            469 113 23 199 45 191 48 -8 3 -98 22 -200 42 -591 117 -925 253 -1136 464
+                            -215 214 -337 510 -464 1126 -26 127 -50 223 -53 215z" />
+                                        <path d="M3916 2390 c-109 -514 -166 -665 -307 -815 -137 -144 -310 -218 -719
+                            -305 -79 -17 -145 -32 -147 -34 -2 -2 59 -15 134 -30 367 -72 580 -158 715
+                            -289 138 -135 218 -323 294 -691 19 -93 36 -171 37 -173 2 -1 20 80 41 180 84
+                            405 187 619 358 740 141 100 310 162 605 223 100 21 181 39 180 41 -2 1 -80
+                            18 -173 37 -368 76 -556 156 -691 294 -130 134 -211 331 -283 689 -37 180 -35
+                            176 -44 133z" />
+                                    </g>
+                                </svg>
+                                Tedavi Sürecimiz
+                            </p>
+                            <h2 class="ny-title">Gülüşünüz İçin <span><br>Neler Yapıyoruz?</span></h2>
+                            <p class="ny-description">Kliniğimizde ağız ve diş sağlığınızı en doğru şekilde
+                                değerlendirebilmek
+                                için en yeni teknolojiye sahip görüntüleme ve tarama sistemlerini kullanıyoruz. Gelişmiş
+                                dijital
+                                röntgen cihazları, 3D ağız tarayıcılar ve bilgisayar destekli teşhis yöntemleri
+                                sayesinde
+                                dişlerinizi detaylı bir şekilde analiz ediyor, size özel en uygun tedavi planını
+                                titizlikle
+                                hazırlıyoruz.</p>
+                        </div>
+                        <div class="accordion-modern">
+                            <div class="accordion-item active">
+                                <div class="accordion-header">
+                                    <span class="accordion-number">01</span>
+                                    <h3 class="accordion-title">Kanal Tedavisi</h3>
+                                    <span class="accordion-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <polyline points="18 15 12 9 6 15"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Dişin iç kısmındaki sinir dokusunun enfekte olması veya iltihaplanması durumunda
+                                        kanal tedavisi uygulanır. Bu yöntem, dişin çekilmesini engelleyerek doğal
+                                        yapısının korunmasına olanak tanır. Uzman hekimlerimiz, ağrısız ve rahat bir
+                                        tedavi süreci sunarak dişlerinizi uzun yıllar sağlıklı şekilde kullanmanızı
+                                        amaçlar.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span class="accordion-number">02</span>
+                                    <h3 class="accordion-title">İmplant Tedavisi</h3>
+                                    <span class="accordion-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <polyline points="18 15 12 9 6 15"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Eksik dişlerin yerine kalıcı çözüm olarak uygulanan implant tedavisi, çene
+                                        kemiğine titanyum vidaların yerleştirilmesiyle yapılır. İmplantlar, doğal
+                                        dişlere en yakın görünüm ve fonksiyon sağlayarak uzun ömürlü bir tedavi seçeneği
+                                        sunar. Güncel teknikler ve ileri teknolojiler kullanılarak, hem güvenli hem de
+                                        estetik açıdan başarılı sonuçlar elde edilir.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span class="accordion-number">03</span>
+                                    <h3 class="accordion-title">Invisalign Tedavisi (Ortodonti ve Diş Teli)</h3>
+                                    <span class="accordion-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <polyline points="18 15 12 9 6 15"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Dişlerin çapraşıklığını ve hizalanma problemlerini gidermek için şeffaf plak
+                                        (Invisalign) ve klasik diş teli tedavileri uygulanır. Invisalign plakları, takıp
+                                        çıkarılabilmesi ve estetik görünümü sayesinde özellikle yetişkinler tarafından
+                                        tercih edilirken, geleneksel ortodontik yöntemlerle her tür diş düzensizliği
+                                        etkili şekilde tedavi edilir.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span class="accordion-number">04</span>
+                                    <h3 class="accordion-title">Diş Beyazlatma</h3>
+                                    <span class="accordion-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <polyline points="18 15 12 9 6 15"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Zamanla oluşan diş lekeleri ve renk değişikliklerini ortadan kaldırmak için
+                                        profesyonel diş beyazlatma hizmetleri sunuyoruz. Ofis tipi ve ev tipi beyazlatma
+                                        yöntemleriyle, dişlerinizin doğal beyazlığına kavuşmasını sağlıyoruz.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="dental-footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <!-- Quick Links -->
+                    <div class="footer-column">
+                        <h3 class="footer-title">Hızlı Linkler</h3>
+                        <ul class="footer-links">
+                            <li><a href="/anasayfa">Anasayfa</a></li>
+                            <li><a href="/hakkimizda">Hakkımızda</a></li>
+                            <li><a href="/tedaviler">Tedaviler</a></li>
+                            <li><a href="/iletisim">Randevu</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="footer-column">
+                        <h3 class="footer-title">Sosyal Medya</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i> Linkedin</a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="footer-column">
+                        <h3 class="footer-title">İletişim</h3>
+                        <address class="footer-address">
+                            <p>Mimar Sinan Mah. Mehmet Akif Ersoy Cad. No:110/A, Körfez, Kocaeli</p>
+                            <p><a href="tel:+905069930041">(0506) 993 00 41</a></p>
+                        </address>
+                    </div>
+                </div>
+
+                <!-- Clinic Name -->
+                <div class="footer-brand">
+                    <p>Özel Elşan Dilber Ağız ve Diş Sağlığı Polikliniği</p>
+                </div>
+
+                <!-- Copyright -->
+                <div class="footer-copyright">
+                    <p>&copy; <span id="current-year"></span> Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Sayfanın en altına ekleyin -->
+    <div class="sticky-call-button">
+        <a href="tel:+905069930041" class="call-button-link">
+            <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+            </svg>
+            <span>Arayın</span>
+        </a>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script>
+
+    <script>
+        Scrollbar.init(document.querySelector('#my-scrollbar'), {
+            damping: 0.07   // Yumuşaklık derecesi (0.05–0.1 arası önerilir)
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+
+                header.addEventListener('click', () => {
+                    // Close all items first
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+
+    <!-- Simple JavaScript for current year -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        // Mobil menü işlevselliği
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+            const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+            // Mobil menüyü aç
+            mobileMenuBtn.addEventListener('click', function () {
+                mobileMenu.classList.add('active');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Mobil menüyü kapat
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+
+                // Açık olan dropdown menüleri kapat
+                document.querySelectorAll('.mobile-dropdown-menu').forEach(menu => {
+                    menu.classList.remove('active');
+                });
+
+                document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+                    toggle.classList.remove('active');
+                });
+            }
+
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileOverlay.addEventListener('click', closeMobileMenu);
+
+            // Dropdown menüleri aç/kapat
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function () {
+                    const dropdownMenu = this.nextElementSibling;
+                    const isActive = dropdownMenu.classList.contains('active');
+
+                    // Tüm dropdown menüleri kapat
+                    document.querySelectorAll('.mobile-dropdown-menu').forEach(menu => {
+                        menu.classList.remove('active');
+                    });
+
+                    document.querySelectorAll('.mobile-dropdown-toggle').forEach(t => {
+                        t.classList.remove('active');
+                    });
+
+                    // Tıklanan menüyü aç
+                    if (!isActive) {
+                        dropdownMenu.classList.add('active');
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // Pencere boyutu değiştiğinde mobil menüyü kapat
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 992) {
+                    closeMobileMenu();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

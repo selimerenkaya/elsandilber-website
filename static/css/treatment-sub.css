@@ -1,0 +1,527 @@
+:root {
+    --buz-mavisi: #EFF8FF;
+    --ana-mavi: #1E84B5;
+    --koyu-mavi: #0E384C;
+}
+
+.nav-dent-treatment-active {
+    color: var(--ana-mavi) !important; 
+}
+
+.section-header-div {
+    background-color: var(--buz-mavisi);
+}
+
+.section-header-head {
+    font-size: 3.375rem; /* 54px / 16 = 3.375rem */
+    font-weight: 700;
+    color: var(--ana-mavi);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6.25rem; /* 100px / 16 = 6.25rem */
+    text-align: center;
+    margin: 0;
+    min-height: 30vh; /* Minimum yükseklik viewport height ile */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+    .section-header-head {
+        font-size: 3rem; /* 48px */
+        padding: 5rem 4.375rem; /* 80px 70px */
+    }
+}
+
+@media (max-width: 992px) {
+    .section-header-head {
+        font-size: 2.625rem; /* 42px */
+        padding: 4.5rem 3.75rem; /* 72px 60px */
+        min-height: 25vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header-head {
+        font-size: 2.25rem; /* 36px */
+        padding: 3.75rem 2.5rem; /* 60px 40px */
+        min-height: 20vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header-head {
+        font-size: 1.875rem; /* 30px */
+        padding: 2.5rem 1.25rem; /* 40px 20px */
+        min-height: 15vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .section-header-head {
+        font-size: 1.5rem; /* 24px */
+        padding: 2rem 1rem; /* 32px 16px */
+        min-height: 12vh;
+    }
+}
+
+/* Treatment Sub Section Styles */
+.treatment-sub-section {
+    padding: 60px 0;
+}
+
+.treatment-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.treatment-sidebar {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+    height: fit-content;
+    overflow-y: auto;
+    width: 92%;
+}
+
+.treatment-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.treatment-card-sidebar {
+    background: var(--buz-mavisi);
+    border-radius: 36px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.treatment-card-sidebar-header {
+    color: var(--koyu-mavi);
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.treatment-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.treatment-list-element {
+    text-decoration: none;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    color: var(--koyu-mavi);
+    transition: all ease-in-out 0.2s;
+}
+
+.treatment-list-element .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ana-mavi);
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.4s ease;
+    margin-left: auto;
+}
+
+.treatment-list-element:hover {
+    color: var(--ana-mavi);
+}
+
+.treatment-list-element:hover .icon {
+    transform: rotate(45deg);
+}
+
+.treatmen-list-bottom-layer {
+    border-bottom: 1px solid #e0dfdf93;
+}
+
+.contact-card {
+    background: var(--ana-mavi);
+    border-radius: 36px;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-card-svg {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-card-header {
+    color: white;
+    margin-bottom: 24px;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.contact-card-text {
+    color: white;
+    line-height: 1.8;
+}
+
+.iletisim-buton-div {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    justify-self: center;
+}
+
+.iletisim-buton {
+    text-decoration: none;
+    word-break: keep-all;
+    color: var(--ana-mavi);
+    background: linear-gradient(to left, white 50%, var(--koyu-mavi) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    padding: 16px;
+    border-radius: 28px;
+    border: 0px;
+    width: auto;
+    height: 48px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    gap: 8px;
+}
+
+.iletisim-buton .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ana-mavi);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    transition: transform 0.4s ease;
+}
+
+.iletisim-buton:hover {
+    background-position: left bottom;
+    color: white;
+}
+
+.iletisim-buton:hover .icon {
+    transform: rotate(45deg);
+}
+
+.treatment-card {
+    background-color: white;
+    border-radius: 36px;
+    padding: 10px;
+}
+
+.treatment-sub-image {
+    width: 100%;
+    height: 95%;
+    overflow: hidden;
+    border-radius: 36px;
+    margin-bottom: 30px;
+}
+
+.treatment-sub-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.treatment-card-header {
+    color: var(--koyu-mavi);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.treatment-card-text {
+    color: #527282;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.treatment-card-text-highlight {
+    font-weight: 700;
+    color: var(--ana-mavi);
+}
+
+.treatment-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 10px;
+}
+
+.treatment-feature-item {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--koyu-mavi);
+    font-size: 1rem;
+}
+
+.treatment-checked-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: white;
+    background-color: var(--ana-mavi);
+    border-radius: 0.75rem;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+.treatment-feature-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Tablet boyutu */
+@media (max-width: 992px) {
+    .treatment-features {
+        gap: 14px;
+    }
+    
+    .treatment-feature-item {
+        font-size: 0.95rem;
+    }
+    
+    .treatment-checked-icon {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+}
+
+/* Küçük tablet */
+@media (max-width: 768px) {
+    .treatment-features {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    
+    .treatment-feature-item {
+        font-size: 0.9rem;
+    }
+    
+    .treatment-checked-icon {
+        width: 1.1rem;
+        height: 1.1rem;
+        margin-right: 0.4rem;
+    }
+}
+
+/* Telefon boyutu */
+@media (max-width: 576px) {
+    .treatment-features {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .treatment-feature-item {
+        font-size: 0.85rem;
+    }
+    
+    .treatment-checked-icon {
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    .treatment-feature-text {
+        white-space: normal;
+    }
+}
+
+/* Çok küçük telefonlar */
+@media (max-width: 400px) {
+    .treatment-features {
+        gap: 8px;
+    }
+    
+    .treatment-feature-item {
+        font-size: 0.8rem;
+    }
+}
+
+.pedodonti-treatment-list {
+    margin-top: 25px;
+}
+
+.pedodonti-treatment-item {
+    display: flex;
+    margin-bottom: 25px;
+    align-items: flex-start;
+}
+
+.treatment-pedodonti-content {
+    flex: 1;
+}
+
+.treatment-title {
+    color: var(--koyu-mavi);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.treatment-description {
+    color: #527282;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.treatment-sublist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.treatment-sublist li {
+    color: #527282;
+    line-height: 1.6;
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.treatment-sublist li:before {
+    content: "•";
+    color: var(--ana-mavi);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive tasarım için */
+@media (max-width: 768px) {
+    .pedodonti-treatment-item {
+        flex-direction: column;
+    }
+    
+    .treatment-icon {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    
+    .treatment-title {
+        font-size: 16px;
+    }
+    
+    .treatment-description {
+        font-size: 14px;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .treatment-container {
+        gap: 15px;
+        padding: 0 20px;
+    }
+
+    .treatment-sidebar {
+        width: 95%;
+    }
+}
+
+@media (max-width: 992px) {
+    .treatment-container {
+        grid-template-columns: 1fr;
+    }
+
+    .treatment-sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .section-header-head {
+        font-size: 42px;
+        padding: 70px 20px;
+    }
+
+    .treatment-card-sidebar,
+    .contact-card {
+        border-radius: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header-head {
+        font-size: 36px;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .treatment-sub-section {
+        padding: 40px 0;
+    }
+
+    .treatment-card-sidebar-header {
+        font-size: 20px;
+    }
+
+    .contact-card-header {
+        font-size: 28px;
+    }
+
+    .treatment-card {
+        padding: 10px;
+        border-radius: 24px;
+    }
+
+    .treatment-card-header {
+        font-size: 18px;
+    }
+
+    .treatment-list-element {
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header-head {
+        font-size: 28px;
+        padding: 40px 15px;
+    }
+
+    .treatment-container {
+        padding: 0 15px;
+        gap: 10px;
+    }
+
+    .treatment-card-sidebar,
+    .contact-card {
+        padding: 20px;
+    }
+
+    .contact-card-header {
+        font-size: 24px;
+    }
+
+    .treatment-sub-image {
+        height: 250px;
+        border-radius: 24px;
+    }
+
+    .iletisim-buton {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,352 @@
+:root {
+    --buz-mavisi: #EFF8FF;
+    /* Açık mavi (buz rengi) */
+    --ana-mavi: #1E84B5;
+    /* Temel mavi (marka rengi) */
+    --koyu-mavi: #0E384C;
+    /* Derin gece mavisi */
+}
+
+.section-header-div {
+    background-color: var(--buz-mavisi);
+}
+
+.section-header-head {
+    font-size: 3.375rem; /* 54px / 16 = 3.375rem */
+    font-weight: 700;
+    color: var(--ana-mavi);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6.25rem; /* 100px / 16 = 6.25rem */
+    text-align: center;
+    margin: 0;
+    min-height: 30vh; /* Minimum yükseklik viewport height ile */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+    .section-header-head {
+        font-size: 3rem; /* 48px */
+        padding: 5rem 4.375rem; /* 80px 70px */
+    }
+}
+
+@media (max-width: 992px) {
+    .section-header-head {
+        font-size: 2.625rem; /* 42px */
+        padding: 4.5rem 3.75rem; /* 72px 60px */
+        min-height: 25vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header-head {
+        font-size: 2.25rem; /* 36px */
+        padding: 3.75rem 2.5rem; /* 60px 40px */
+        min-height: 20vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header-head {
+        font-size: 1.875rem; /* 30px */
+        padding: 2.5rem 1.25rem; /* 40px 20px */
+        min-height: 15vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .section-header-head {
+        font-size: 1.5rem; /* 24px */
+        padding: 2rem 1rem; /* 32px 16px */
+        min-height: 12vh;
+    }
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 60px 5%;
+    margin-bottom: 48px;
+    background-color: white;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Lightbox - Full Screen */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.745);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sahnede birden çok img aynı anda olacağı için tam ekran kapsayıcı */
+.lightbox-content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;             /* dışarı taşanı gizle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Resimlerin konumlanması ve animasyon hazırlığı */
+.lightbox-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* merkezden yerleştir, sonra sınıflarla X ekseninde kaydır */
+    transform: translate(-50%, -50%);
+    max-width: 80vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    will-change: transform, opacity;
+}
+
+/* GİRİŞ pozisyonları (ekran dışından başlat) */
+.lightbox-img.enter-from-right {
+    transform: translate(-50%, -50%) translateX(60vw);
+    opacity: 0;
+}
+.lightbox-img.enter-from-left {
+    transform: translate(-50%, -50%) translateX(-60vw);
+    opacity: 0;
+}
+
+/* GİRİŞ animasyonu -> merkeze gel */
+.lightbox-img.enter-active {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 1;
+}
+
+/* ÇIKIŞ animasyonu: ekrandan çıkarken şeffaflaş */
+.lightbox-img.leave-active.leave-to-left {
+    transform: translate(-50%, -50%) translateX(-60vw);
+    opacity: 0;
+}
+.lightbox-img.leave-active.leave-to-right {
+    transform: translate(-50%, -50%) translateX(60vw);
+    opacity: 0;
+}
+
+.transitioning {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    max-height: 90vh;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Sol üstte counter */
+.lightbox-counter {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 18px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    z-index: 1002;
+}
+
+/* Close Button */
+.lightbox-close {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color: white;
+    font-size: 36px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation */
+.lightbox-nav {
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 30px;
+    z-index: 1001;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    color: white;
+    font-size: 36px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    transform: scale(1.1);
+}
+
+/* Görünmez tıklama alanları */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sol ve sağ ayrımı */
+.lightbox-overlay.left {
+    left: 0;
+    justify-content: flex-start;
+    padding-left: 80px;
+}
+
+.lightbox-overlay.right {
+    right: 0;
+    justify-content: flex-end;
+    padding-right: 80px;
+}
+
+/* Ok ikonları */
+.lightbox-arrow {
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.6);
+    user-select: none;
+    pointer-events: none;
+    transition: color 0.3s;
+}
+
+.lightbox-overlay:hover .lightbox-arrow {
+    color: rgba(255, 255, 255, 1);
+}
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-header-head {
+        font-size: 42px;
+        padding: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 400px;
+    }
+
+    .section-header-head {
+        font-size: 36px;
+        padding: 30px 20px;
+    }
+
+    .gallery-section {
+        padding: 40px 20px;
+        margin-bottom: 20px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .lightbox-close {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
+    }
+
+    .lightbox-counter {
+        bottom: 20px;
+        font-size: 16px;
+    }
+}

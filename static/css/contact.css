@@ -1,0 +1,224 @@
+:root {
+    --buz-mavisi: #EFF8FF;
+    --ana-mavi: #1E84B5;
+    --koyu-mavi: #0E384C;
+}
+
+.section-header-div {
+    background-color: var(--buz-mavisi);
+}
+
+.section-header-head {
+    font-size: 3.375rem; /* 54px / 16 = 3.375rem */
+    font-weight: 700;
+    color: var(--ana-mavi);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6.25rem; /* 100px / 16 = 6.25rem */
+    text-align: center;
+    margin: 0;
+    min-height: 30vh; /* Minimum yükseklik viewport height ile */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+    .section-header-head {
+        font-size: 3rem; /* 48px */
+        padding: 5rem 4.375rem; /* 80px 70px */
+    }
+}
+
+@media (max-width: 992px) {
+    .section-header-head {
+        font-size: 2.625rem; /* 42px */
+        padding: 4.5rem 3.75rem; /* 72px 60px */
+        min-height: 25vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header-head {
+        font-size: 2.25rem; /* 36px */
+        padding: 3.75rem 2.5rem; /* 60px 40px */
+        min-height: 20vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header-head {
+        font-size: 1.875rem; /* 30px */
+        padding: 2.5rem 1.25rem; /* 40px 20px */
+        min-height: 15vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .section-header-head {
+        font-size: 1.5rem; /* 24px */
+        padding: 2rem 1rem; /* 32px 16px */
+        min-height: 12vh;
+    }
+}
+
+/* Hakkımızda kısmı */
+.contact-section {
+    background-color: white;
+}
+
+.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Changed to stretch for equal height */
+}
+
+/* Sol kolon (harita) */
+.contact-col-left {
+    flex: 1;
+    max-width: 40vw;
+    padding: 80px 40px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+/* Harita iframe */
+.contact-map {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Sağ kolon (bilgi alanı) */
+.contact-col-right {
+    flex: 1;
+    max-width: 64vw;
+    padding: 120px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-box {
+    background: #fff;
+    border-radius: 32px;
+    border: solid 1px rgba(235, 234, 234, 0.645);
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.contact-svg-konum {
+    background: var(--buz-mavisi);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.contact-right-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ana-mavi);
+}
+
+.contact-right-subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--koyu-mavi);
+}
+
+.contact-right-description {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #527282;
+    margin-bottom: 40px;
+}
+
+/* Responsive styles for tablets and mobile */
+@media (max-width: 1024px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    
+    .contact-col-left,
+    .contact-col-right {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .contact-col-left {
+        padding: 40px 20px;
+        order: 2; /* Move map below on mobile */
+    }
+    
+    .contact-col-right {
+        padding: 60px 20px;
+        order: 1;
+    }
+    
+    .contact-map {
+        height: 400px; /* Fixed height for mobile */
+    }
+    
+    .section-header-head {
+        font-size: 36px;
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-map {
+        height: 300px;
+    }
+    
+    .contact-box {
+        border-radius: 16px;
+        padding: 15px;
+    }
+    
+    .contact-right-subtitle {
+        font-size: 18px;
+    }
+    
+    .contact-right-description {
+        font-size: 14px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .section-header-head {
+        font-size: 28px;
+        padding: 40px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-map {
+        height: 250px;
+    }
+    
+    .contact-col-left {
+        padding: 20px 15px;
+    }
+    
+    .contact-col-right {
+        padding: 40px 15px;
+    }
+    
+    .contact-svg-konum {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .contact-right-subtitle {
+        font-size: 16px;
+    }
+}

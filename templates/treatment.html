@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tedaviler - Elşan Dilber Ağız ve Diş Sağlığı Polikliniği</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/treatment.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <ul class="mobile-nav">
+            <li class="mobile-nav-item">
+                <a class="mobile-nav-link" href="/anasayfa">Anasayfa</a>
+            </li>
+            <li class="mobile-nav-item">
+                <div class="mobile-dropdown-toggle">
+                    <a class="mobile-nav-link active" href="/tedaviler">Tedaviler</a>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="/tedaviler/genel_dis_bakimi">Genel Diş Bakımı</a></li>
+                    <li><a href="/tedaviler/cocuk_dis_hekimligi">Çocuk Diş Hekimliği</a></li>
+                    <li><a href="/tedaviler/implant_tedavisi">Diş İmplantları</a></li>
+                    <li><a href="/tedaviler/dis_beyazlatma">Diş Beyazlatma</a></li>
+                    <li><a href="/tedaviler/dis_estetigi">Diş Estetiği</a></li>
+                    <li><a href="/tedaviler/dis_eti_hastaliklari">Diş Eti Hastalıkları</a></li>
+                    <li><a href="/tedaviler/kanal_tedavisi">Kanal Tedavisi</a></li>
+                    <li><a href="/tedaviler/invisalign_tedavisi">Invisalign Tedavisi</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-item">
+                <a class="mobile-nav-link" href="/galeri">Galeri</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a class="mobile-nav-link" href="/hakkimizda">Hakkımızda</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a class="mobile-nav-link" href="/iletisim">İletişim</a>
+            </li>
+        </ul>
+
+        <div class="mt-4">
+            <a href="/iletisim" class="randevu-al w-100">
+                Randevu Al <span class="icon">↗</span>
+            </a>
+        </div>
+    </div>
+    <div id="my-scrollbar">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-dent">
+            <div class="container navbar-dent-container">
+                <!-- Logo & Brand Name -->
+                <a class="navbar-brand hide" href="anasayfa">
+                    <div class="d-flex align-items-center">
+                        <span class="fw-bold fs-4 text-primary">Elşan</span>
+                        <span class="fw-bold fs-4 text-dark ms-1">Dilber</span>
+                        <span class="fs-6 text-muted ms-2">Diş Polikliniği</span>
+                    </div>
+                </a>
+
+                <div class="only-mobile-nav align-items-center justify-content-between w-100">
+                    <!-- Logo & Brand Name -->
+                    <a class="navbar-brand d-flex align-items-center" href="anasayfa">
+                        <span class="fw-bold fs-4 text-primary">Elşan</span>
+                        <span class="fw-bold fs-4 text-dark ms-1">Dilber</span>
+                        <span class="fs-6 text-muted ms-2">Diş Polikliniği</span>
+                    </a>
+
+                    <!-- Custom Mobile Menu Button -->
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <!-- Nav Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav" style="display: flex; justify-content: center; align-items: center;">
+                        <li class="nav-item">
+                            <a class="nav-dent-link" href="/anasayfa" style="margin-left: 60px;">Anasayfa</a>
+                        </li>
+                        <li class="nav-item tedavi-dropdown">
+                            <a class="nav-dent-link nav-dent-link-active" href="/tedaviler">Tedaviler
+                                <svg class="tedavi-icon" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                    width="16.000000pt" height="16.000000pt" viewBox="0 0 16.000000 16.000000"
+                                    preserveAspectRatio="xMidYMid meet">
+
+                                    <g transform="translate(0.000000,16.000000) scale(0.100000,-0.100000)"
+                                        fill="currentColor" stroke="none">
+                                        <path d="M47 78 l33 -32 30 29 c16 16 28 31 25 33 -3 3 -16 -5 -30 -18 l-25
+                                            -23 -23 21 c-37 35 -45 26 -10 -10z" />
+                                    </g>
+                                </svg>
+                            </a>
+                            <ul class="tedavi-dropdown-menu">
+                                <li><a href="/tedaviler/genel_dis_bakimi">Genel Diş Bakımı</a></li>
+                                <li><a href="/tedaviler/cocuk_dis_hekimligi">Çocuk Diş Hekimliği</a></li>
+                                <li><a href="/tedaviler/implant_tedavisi">Diş İmplantları</a></li>
+                                <li><a href="/tedaviler/dis_beyazlatma">Diş Beyazlatma</a></li>
+                                <li><a href="/tedaviler/dis_estetigi">Diş Estetiği</a></li>
+                                <li><a href="/tedaviler/dis_eti_hastaliklari">Diş Eti Hastalıkları</a></li>
+                                <li><a href="/tedaviler/kanal_tedavisi">Kanal Tedavisi</a></li>
+                                <li><a href="/tedaviler/invisalign_tedavisi">Invisalign Tedavisi</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-dent-link" href="/galeri">Galeri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-dent-link" href="/hakkimizda">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-dent-link" href="/iletisim">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="randevu-al-div">
+                    <a class="randevu-al" href="/iletisim">
+                        Randevu Al <span class="icon">↗</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Header Section -->
+        <div class="section-header-div">
+            <h2 class="section-header-head">Tedavilerimiz</h2>
+        </div>
+
+        <!-- Treatments Section -->
+    <section class="treatments-section">
+        <!-- İlk 4 Kart -->
+        <div class="treatment-cards">
+            <div class="treatment-card shadow-sm">
+                <h2 class="treatment-card-header">Genel Diş Bakımı</h2>
+                <p class="treatment-card-text">Aileniz için en iyi diş bakımını sunmaktan mutluluk duyuyoruz.</p>
+                <div class="treatment-al-div">
+                    <a class="treatment-link" href="/tedaviler/genel_dis_bakimi">
+                        <button class="treatment-al">
+                            Daha Fazla Bilgi<span class="icon">↗</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="treatment-card shadow-sm">
+                <h2 class="treatment-card-header">Diş İmplantları</h2>
+                <p class="treatment-card-text">Eksik dişlerinizi tamamlamak için güvenilir çözümler sunuyoruz.</p>
+                <div class="treatment-al-div">
+                    <a class="treatment-link" href="/tedaviler/implant_tedavisi">
+                        <button class="treatment-al">
+                            Daha Fazla Bilgi<span class="icon">↗</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="treatment-card shadow-sm">
+                <h2 class="treatment-card-header">Invisalign Tedavisi</h2>
+                <p class="treatment-card-text">Şeffaf plaklarla dişleri hizalayan estetik bir ortodontik tedavi
+                    sunuyoruz.</p>
+                <div class="treatment-al-div">
+                    <a class="treatment-link" href="/tedaviler/invisalign_tedavisi">
+                        <button class="treatment-al">
+                            Daha Fazla Bilgi<span class="icon">↗</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="treatment-card shadow-sm">
+                <h2 class="treatment-card-header">Diş Beyazlatma</h2>
+                <p class="treatment-card-text">Daha parlak bir gülümseme için profesyonel beyazlatma hizmetleri
+                    sunuyoruz.</p>
+                <div class="treatment-al-div">
+                    <a class="treatment-link" href="/tedaviler/dis_beyazlatma">
+                        <button class="treatment-al">
+                            Daha Fazla Bilgi<span class="icon">↗</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sonraki 4 Kart -->
+        <div class="treatment-cards">
+            <div class="treatment-card shadow-sm">
+                <h2 class="treatment-card-header">Çocuk Diş Hekimliği</h2>
+                <p class="treatment-card-text">Çocukların sağlıklı gülümsemeleri için özel çözümler sunuyoruz.</p>
+                <div class="treatment-al-div">
+                    <a class="treatment-link" href="/tedaviler/cocuk_dis_hekimligi">
+                        <button class="treatment-al">
+                            Daha Fazla Bilgi<span class="icon">↗</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="treatment-card shadow-sm">
+                <h2 class="treatment-card-header">Diş Estetiği</h2>
+                <p class="treatment-card-text">Gülüşünüzü estetik açıdan güzelleştiren modern tedaviler sunuyoruz.
+                </p>
+                <div class="treatment-al-div">
+                    <a class="treatment-link" href="/tedaviler/dis_estetigi">
+                        <button class="treatment-al">
+                            Daha Fazla Bilgi<span class="icon">↗</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="treatment-card shadow-sm">
+                <h2 class="treatment-card-header">Diş Eti Hastalıkları</h2>
+                <p class="treatment-card-text">Sağlıklı diş etleri için profesyonel teşhis ve tedavi yöntemleri
+                    sunuyoruz.</p>
+                <div class="treatment-al-div">
+                    <a class="treatment-link" href="/tedaviler/dis_eti_hastaliklari">
+                        <button class="treatment-al">
+                            Daha Fazla Bilgi<span class="icon">↗</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="treatment-card shadow-sm">
+                <h2 class="treatment-card-header">Kanal Tedavisi</h2>
+                <p class="treatment-card-text">Hasarlı dişleri kurtarmak için kök kanal tedavisi uyguluyoruz.</p>
+                <div class="treatment-al-div">
+                    <a class="treatment-link" href="/tedaviler/kanal_tedavisi">
+                        <button class="treatment-al">
+                            Daha Fazla Bilgi<span class="icon">↗</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="dental-footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <!-- Quick Links -->
+                    <div class="footer-column">
+                        <h3 class="footer-title">Hızlı Linkler</h3>
+                        <ul class="footer-links">
+                            <li><a href="/anasayfa">Anasayfa</a></li>
+                            <li><a href="/hakkimizda">Hakkımızda</a></li>
+                            <li><a href="/tedaviler">Tedaviler</a></li>
+                            <li><a href="/iletisim">Randevu</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="footer-column">
+                        <h3 class="footer-title">Sosyal Medya</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i> Linkedin</a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="footer-column">
+                        <h3 class="footer-title">İletişim</h3>
+                        <address class="footer-address">
+                            <p>Mimar Sinan Mah. Mehmet Akif Ersoy Cad.
+
+                                No:110/A, Körfez, Kocaeli</p>
+                            <p><a href="tel:+905069930041">(0506) 993 00 41</a></p>
+                        </address>
+                    </div>
+                </div>
+
+                <!-- Clinic Name -->
+                <div class="footer-brand">
+                    <p>Özel Elşan Dilber Ağız ve Diş Sağlığı Polikliniği</p>
+                </div>
+
+                <!-- Copyright -->
+                <div class="footer-copyright">
+                    <p>&copy; <span id="current-year"></span> Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- Sayfanın en altına ekleyin -->
+    <div class="sticky-call-button">
+        <a href="tel:+905069930041" class="call-button-link">
+            <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+            </svg>
+            <span>Arayın</span>
+        </a>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script>
+
+    <script>
+        Scrollbar.init(document.querySelector('#my-scrollbar'), {
+            damping: 0.07   // Yumuşaklık derecesi (0.05–0.1 arası önerilir)
+        });
+    </script>
+
+    <!-- Simple JavaScript for current year -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <script>
+        // Mobil menü işlevselliği
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+            const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+            // Mobil menüyü aç
+            mobileMenuBtn.addEventListener('click', function () {
+                mobileMenu.classList.add('active');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Mobil menüyü kapat
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+
+                // Açık olan dropdown menüleri kapat
+                document.querySelectorAll('.mobile-dropdown-menu').forEach(menu => {
+                    menu.classList.remove('active');
+                });
+
+                document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+                    toggle.classList.remove('active');
+                });
+            }
+
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileOverlay.addEventListener('click', closeMobileMenu);
+
+            // Dropdown menüleri aç/kapat
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function () {
+                    const dropdownMenu = this.nextElementSibling;
+                    const isActive = dropdownMenu.classList.contains('active');
+
+                    // Tüm dropdown menüleri kapat
+                    document.querySelectorAll('.mobile-dropdown-menu').forEach(menu => {
+                        menu.classList.remove('active');
+                    });
+
+                    document.querySelectorAll('.mobile-dropdown-toggle').forEach(t => {
+                        t.classList.remove('active');
+                    });
+
+                    // Tıklanan menüyü aç
+                    if (!isActive) {
+                        dropdownMenu.classList.add('active');
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // Pencere boyutu değiştiğinde mobil menüyü kapat
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 992) {
+                    closeMobileMenu();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
